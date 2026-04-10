@@ -47,8 +47,12 @@ export default function RegisterPage() {
             });
             alert("Kayıt başarılı! Giriş yapabilirsiniz.");
             router.push('/signin');
-        } catch (error) {
-            console.error("Register Failed", error);
+        } catch (error: any) {
+            console.error("DEBUG: Register Failed", error);
+            if (error.response) {
+               console.log("DEBUG: Error Data:", error.response.data);
+               console.log("DEBUG: Error Status:", error.response.status);
+            }
             alert("Kayıt başarısız. Lütfen bilgilerinizi kontrol edin.");
         } finally {
             setIsLoading(false);

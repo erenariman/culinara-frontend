@@ -27,11 +27,15 @@ export function Ingredients({
     );
 }
 
+import { translateRecipeUnits } from '@/lib/translations';
+
 function IngredientItem({ label }: { label: string }) {
     return (
         <label className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors group">
             <input className="mt-1 size-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox" />
-            <span className="text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white select-none">{label}</span>
+            <span className="text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white select-none">
+                {translateRecipeUnits(label)}
+            </span>
         </label>
     );
 }

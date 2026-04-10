@@ -2,11 +2,13 @@ import axios from 'axios';
 
 // Create a configured axios instance
 export const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL || '', // Empty baseURL will use window.location.origin
+    baseURL: process.env.NEXT_PUBLIC_API_URL || '', 
     headers: {
         'Content-Type': 'application/json',
     },
 });
+
+console.log("Current API BaseURL:", api.defaults.baseURL);
 
 // Request interceptor: Inject JWT Auth token
 api.interceptors.request.use((config) => {
